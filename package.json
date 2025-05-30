@@ -1,0 +1,70 @@
+{
+    "name": "crew-sync-agent",
+    "version": "1.0.0",
+    "description": "Dynamic Team Collaboration MCP Server for Smithery - Flexible crew synchronization with priority-based task management",
+    "main": "mcp_server.py",
+    "type": "module",
+    "scripts": {
+        "start": "python mcp_server.py",
+        "test": "python test_crew_sync.py",
+        "install": "pip install -r requirements.txt",
+        "dev": "python -u mcp_server.py"
+    },
+    "keywords": [
+        "mcp",
+        "model-context-protocol",
+        "ai",
+        "collaboration",
+        "team-management",
+        "crew",
+        "sync",
+        "smithery",
+        "cursor",
+        "claude"
+    ],
+    "author": "Hwani-Net",
+    "license": "Apache-2.0",
+    "homepage": "https://github.com/Hwani-Net/crew-sync-agent",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Hwani-Net/crew-sync-agent.git"
+    },
+    "bugs": {
+        "url": "https://github.com/Hwani-Net/crew-sync-agent/issues"
+    },
+    "mcp": {
+        "server": {
+            "name": "crew-sync-agent",
+            "version": "1.0.0",
+            "description": "Dynamic team collaboration system with flexible crew management",
+            "command": "python",
+            "args": [
+                "mcp_server.py"
+            ],
+            "capabilities": {
+                "tools": true,
+                "resources": false,
+                "prompts": false
+            },
+            "environment": {
+                "MAX_CREW_SIZE": "10",
+                "AI_SERVICE": "auto",
+                "MODEL_NAME": "auto"
+            }
+        }
+    },
+    "files": [
+        "mcp_server.py",
+        "test_crew_sync.py",
+        "requirements.txt",
+        "smithery.yaml",
+        "claude_desktop_config.json",
+        "cursor-mcp-config.json",
+        "README.md",
+        "CURSOR_INSTALLATION.md",
+        "LICENSE"
+    ],
+    "engines": {
+        "python": ">=3.8"
+    }
+}
