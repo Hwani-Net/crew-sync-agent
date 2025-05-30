@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "crew-sync-agent": {
+      "command": "python",
+      "args": ["mcp_server.py"],
+      "env": {
+        "MAX_CREW_SIZE": "10",
+        "AI_SERVICE": "claude",
+        "MODEL_NAME": "claude-3-sonnet"
+      }
+    }
+  }
+}
