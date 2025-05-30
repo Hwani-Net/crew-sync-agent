@@ -1,74 +1,125 @@
-# Agent2Agent (A2A) Protocol
+# 🔄 Crew Sync Agent
 
-![PyPI - Version](https://img.shields.io/pypi/v/a2a-sdk)
-[![Apache License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
+**Dynamic Team Collaboration MCP Server for Smithery**
 
-![A2A Banner](docs/assets/a2a-banner.png)
+## 🌟 Overview
 
-**An open protocol enabling communication and interoperability between opaque agentic applications.**
+Crew Sync Agent is a flexible, dynamic team collaboration system built for the Model Context Protocol (MCP). Unlike traditional fixed-team approaches, it allows for dynamic team composition and real-time synchronization of crew members for various projects.
 
-The Agent2Agent (A2A) protocol addresses a critical challenge in the AI landscape: enabling gen AI agents, built on diverse frameworks by different companies running on separate servers, to communicate and collaborate effectively - as agents, not just as tools. A2A aims to provide a common language for agents, fostering a more interconnected, powerful, and innovative AI ecosystem.
+## ✨ Key Features
 
-With A2A, agents can:
+- **🔄 Dynamic Team Sync**: Flexible team composition for project-specific optimization
+- **👥 Scalable Teams**: Support for up to 10 dynamic team members
+- **🎯 Priority-Based**: Task prioritization (Low/Medium/High/Urgent)
+- **🔐 Secure**: Environment variable-based API key management
+- **⚡ Real-time**: MCP protocol-based instant team synchronization
 
-- Discover each other's capabilities.
-- Negotiate interaction modalities (text, forms, media).
-- Securely collaborate on long running tasks.
-- Operate without exposing their internal state, memory, or tools.
+## 🏗️ Default Crew (Expandable)
 
-## See A2A in Action
+- **🎯 Taylor**: Team Coordinator - Strategic planning & project coordination
+- **⚡ Jordan**: Tech Engineer - Full-stack development & DevOps  
+- **💡 Riley**: Product Strategist - UX research & feature planning
+- **📊 Casey**: Data Specialist - ML, analytics & visualization
+- **🏗️ Morgan**: System Architect - System design & scalability
+- **🎨 Avery**: Design Lead - Interface design & prototyping
 
-Watch [this demo video](https://storage.googleapis.com/gweb-developer-goog-blog-assets/original_videos/A2A_demo_v4.mp4) to see how A2A enables seamless communication between different agent frameworks.
+> **Note**: Team composition is completely dynamic and can be adjusted based on project requirements.
 
-## Why A2A?
+## 🛠️ Available Tools
 
-As AI agents become more prevalent, their ability to interoperate is crucial for building complex, multi-functional applications. A2A aims to:
+### `sync_crew` - Synchronize Team Members
 
-- **Break Down Silos:** Connect agents across different ecosystems.
-- **Enable Complex Collaboration:** Allow specialized agents to work together on tasks that a single agent cannot handle alone.
-- **Promote Open Standards:** Foster a community-driven approach to agent communication, encouraging innovation and broad adoption.
-- **Preserve Opacity:** Allow agents to collaborate without needing to share internal memory, proprietary logic, or specific tool implementations, enhancing security and protecting intellectual property.
+```json
+{
+  "task": "Task description",
+  "crew_members": ["Taylor", "Jordan", "Riley"], // optional
+  "priority": "high" // low/medium/high/urgent
+}
+```
 
-### Key Features
+### `add_crew_member` - Add New Team Member
 
-- **Standardized Communication:** JSON-RPC 2.0 over HTTP(S).
-- **Agent Discovery:** Via "Agent Cards" detailing capabilities and connection info.
-- **Flexible Interaction:** Supports synchronous request/response, streaming (SSE), and asynchronous push notifications.
-- **Rich Data Exchange:** Handles text, files, and structured JSON data.
-- **Enterprise-Ready:** Designed with security, authentication, and observability in mind.
+```json
+{
+  "name": "New member name",
+  "role": "Role and expertise description"
+}
+```
 
-## Getting Started
+### `list_crew` - List Current Team
 
-- 📚 **Explore the Documentation:** Visit the [Agent2Agent Protocol Documentation Site](https://goo.gle/a2a) for a complete overview, the full protocol specification, tutorials, and guides.
-- 📝 **View the Specification:** [A2A Protocol Specification](https://google-a2a.github.io/A2A/specification/)
-- 🐍 Use the [A2A Python SDK](https://github.com/google-a2a/a2a-python)
-  - `pip install a2a-sdk`
-- 🎬 Use our [samples](https://github.com/google-a2a/a2a-samples) to see A2A in action
+```json
+{} // no parameters needed
+```
 
-## Contributing
+### `echo` - Connection Test
 
-We welcome community contributions to enhance and evolve the A2A protocol!
+```json
+{
+  "text": "Test message"
+}
+```
 
-- **Questions & Discussions:** Join our [GitHub Discussions](https://github.com/google-a2a/A2A/discussions).
-- **Issues & Feedback:** Report issues or suggest improvements via [GitHub Issues](https://github.com/google-a2a/A2A/issues).
-- **Contribution Guide:** See our [CONTRIBUTING.md](CONTRIBUTING.md) for details on how to contribute.
-- **Private Feedback:** Use this [Google Form](https://goo.gle/a2a-feedback).
-- **Partner Program:** Google Cloud customers can join our partner program via this [form](https://goo.gle/a2a-partner).
+## 🚀 Quick Start
 
-## What's next
+### Local Testing
 
-### Protocol Enhancements
+```bash
+python test_crew_sync.py
+```
 
-- **Agent Discovery:**
-  - Formalize inclusion of authorization schemes and optional credentials directly within the `AgentCard`.
-- **Agent Collaboration:**
-  - Investigate a `QuerySkill()` method for dynamically checking unsupported or unanticipated skills.
-- **Task Lifecycle & UX:**
-  - Support for dynamic UX negotiation _within_ a task (e.g., agent adding audio/video mid-conversation).
-- **Client Methods & Transport:**
-  - Explore extending support to client-initiated methods (beyond task management).
-  - Improvements to streaming reliability and push notification mechanisms.
+### Smithery Deployment
 
-## About
+1. Create GitHub repository
+2. Deploy to Smithery: `smithery deploy https://github.com/username/crew-sync-agent`
+3. Configure environment variables in Smithery dashboard
 
-The A2A Protocol is an open-source project by Google LLC, under the [Apache License 2.0](LICENSE), and is open to contributions from the community.
+## 📋 Example Usage
+
+### Web Development Project
+
+```json
+{
+  "task": "React + Node.js e-commerce platform development",
+  "crew_members": ["Jordan", "Riley", "Avery"],
+  "priority": "high"
+}
+```
+
+### Data Analysis Project
+
+```json
+{
+  "task": "User behavior pattern analysis and prediction model",
+  "crew_members": ["Casey", "Morgan"],
+  "priority": "medium"
+}
+```
+
+## 🔧 Configuration
+
+### Environment Variables
+
+- `MAX_CREW_SIZE`: Maximum team size (default: 10)
+- `OPENAI_API_KEY`: OpenAI API key (optional)
+- `ANTHROPIC_API_KEY`: Anthropic API key (optional)
+- `AI_SERVICE`: Preferred AI service
+- `MODEL_NAME`: Default model name
+
+## 🛡️ Security
+
+- ✅ API keys via environment variables only
+- ✅ No hardcoded secrets in code
+- ✅ Docker non-root user execution
+- ✅ Sensitive files excluded via `.dockerignore`
+- ✅ MCP protocol standard compliance
+
+## 📞 Support
+
+- **Issues**: GitHub Issues for bug reports and feature requests
+- **Documentation**: See `README_SMITHERY.md` for detailed deployment guide
+- **Community**: MCP developer community
+
+---
+
+**Crew Sync Agent**: Flexible and scalable AI team collaboration solution 🚀
