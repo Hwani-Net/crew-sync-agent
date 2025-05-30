@@ -1,0 +1,101 @@
+# 🔄 Crew Sync Agent - Cursor IDE Rules
+
+## 🎯 **MCP Server Integration**
+
+This project implements a **Crew Sync Agent** for dynamic team collaboration using the Model Context Protocol (MCP).
+
+### **Key Features:**
+- 🔄 Dynamic team synchronization with flexible crew management
+- 👥 Support for up to 10 team members with role-based assignments
+- 🎯 Priority-based task management (Low/Medium/High/Urgent)
+- ⚡ Real-time MCP protocol-based collaboration
+- 🔐 Secure environment variable configuration
+
+### **MCP Tools Available:**
+- `sync_crew` - Synchronize team members for specific tasks
+- `add_crew_member` - Dynamically add new team members
+- `list_crew` - Display current team composition
+- `echo` - Test MCP server connectivity
+
+## 📋 **Usage in Cursor IDE**
+
+### **1. MCP Server Configuration**
+To use this MCP server in Cursor IDE, add to your MCP configuration:
+
+```json
+{
+  "mcpServers": {
+    "crew-sync-agent": {
+      "command": "python",
+      "args": ["mcp_server.py"],
+      "env": {
+        "MAX_CREW_SIZE": "10",
+        "AI_SERVICE": "cursor",
+        "MODEL_NAME": "gpt-4"
+      }
+    }
+  }
+}
+```
+
+### **2. Local Testing**
+```bash
+# Test the MCP server
+python test_crew_sync.py
+
+# Start MCP server directly
+python mcp_server.py
+```
+
+### **3. Environment Variables** (Optional)
+Create a `.env` file:
+```
+MAX_CREW_SIZE=10
+AI_SERVICE=cursor
+MODEL_NAME=gpt-4
+OPENAI_API_KEY=your_key_here
+ANTHROPIC_API_KEY=your_key_here
+```
+
+## 🛠️ **Development Guidelines**
+
+### **Code Style:**
+- Follow Python PEP 8 standards
+- Use type hints for better IDE support
+- Add docstrings for all functions and classes
+- Keep MCP protocol compliance
+
+### **MCP Protocol:**
+- All tools must return proper JSON-RPC responses
+- Use standard MCP message formats
+- Handle errors gracefully with proper error codes
+- Support both synchronous and asynchronous operations
+
+### **Testing:**
+- Run `test_crew_sync.py` before committing
+- Ensure all MCP tools work correctly
+- Test with different crew configurations
+- Validate JSON schema compliance
+
+## 🚀 **Deployment:**
+
+### **Smithery:**
+- Configure via `smithery.yaml`
+- Use environment variables for API keys
+- Test deployment with minimal dependencies
+
+### **Local Development:**
+- Clone repository
+- Install dependencies: `pip install -r requirements.txt`
+- Run tests: `python test_crew_sync.py`
+- Start server: `python mcp_server.py`
+
+## 🔐 **Security Notes:**
+- Never commit API keys to repository
+- Use environment variables for sensitive data
+- Follow secure coding practices
+- Validate all user inputs properly
+
+---
+
+**Crew Sync Agent**: Flexible AI team collaboration through MCP protocol 🎯
