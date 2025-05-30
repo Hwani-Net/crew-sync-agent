@@ -1,0 +1,51 @@
+{
+  "name": "crew-sync-agent",
+  "displayName": "🔄 Crew Sync Agent",
+  "description": "Dynamic Team Collaboration MCP Server for flexible crew synchronization",
+  "version": "1.0.0",
+  "author": "Hwani-Net",
+  "license": "MIT",
+  "mcp": {
+    "server": {
+      "command": "python",
+      "args": ["mcp_server.py"],
+      "env": {
+        "MAX_CREW_SIZE": "10",
+        "AI_SERVICE": "claude",
+        "MODEL_NAME": "claude-3-sonnet"
+      }
+    },
+    "tools": [
+      "sync_crew",
+      "add_crew_member", 
+      "list_crew",
+      "echo"
+    ],
+    "capabilities": [
+      "dynamic_team_management",
+      "priority_based_task_handling",
+      "real_time_synchronization",
+      "scalable_collaboration"
+    ]
+  },
+  "cursor": {
+    "integration": {
+      "type": "mcp_server",
+      "category": "collaboration",
+      "tags": ["team", "sync", "collaboration", "mcp", "dynamic"],
+      "configuration": {
+        "setupRequired": true,
+        "environmentVariables": [
+          "MAX_CREW_SIZE",
+          "AI_SERVICE",
+          "MODEL_NAME"
+        ]
+      }
+    }
+  },
+  "deployment": {
+    "smithery": "https://github.com/Hwani-Net/crew-sync-agent",
+    "docker": true,
+    "localTesting": "python test_crew_sync.py"
+  }
+}
